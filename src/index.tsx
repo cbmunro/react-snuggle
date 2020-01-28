@@ -7,11 +7,12 @@ interface ISnuggle {
   columnWidth?: number
   container?: React.ReactElement<any>
   item?: React.ReactElement<any>
+  readyClass?: string
   rowGap?: number
   uniqueid?: string
 }
 
-const blackListProps = ['rowGap', 'columnWidth', 'uniqueid']
+const blackListProps = ['rowGap', 'columnWidth', 'uniqueid', 'readyClass']
 const removeBlackListed = removeKeys(blackListProps)
 
 class Snuggle extends React.PureComponent<ISnuggle> {
@@ -19,6 +20,7 @@ class Snuggle extends React.PureComponent<ISnuggle> {
     columnWidth: 250,
     container: React.createElement('div'),
     item: React.createElement('div'),
+    readyClass: '',
     rowGap: 20,
     uniqueid: '',
   }
@@ -40,10 +42,19 @@ class Snuggle extends React.PureComponent<ISnuggle> {
   componentDidMount() {
     this.setValues()
     this.onLoadImages()
+    if (this.grid) {
+      this.grid.classList.add(this.props.readyClass)
+    }
   }
 
   componentDidUpdate() {
+    if (this.grid) {
+      this.grid.classList.remove(this.props.readyClass)
+    }
     this.setValues()
+    if (this.grid) {
+      this.grid.classList.add(this.props.readyClass)
+    }
   }
 
   getRef = (ref: HTMLElement) => {

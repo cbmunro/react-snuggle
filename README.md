@@ -44,6 +44,7 @@ const List = () => (
 | container   | _React.Element_ | `<div />` |
 | rowGap      | _Number_        | 10        |
 | columnWidth | _Number_        | 250       |
+| readyClass  | _String_        | ''        |
 
 ### Todo
 
