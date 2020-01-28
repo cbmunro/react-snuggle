@@ -38,13 +38,14 @@ const List = () => (
 
 ### Options
 
-| Name        | Type            | Default   |
-| ----------- | --------------- | --------- |
-| item        | _React.Element_ | `<div />` |
-| container   | _React.Element_ | `<div />` |
-| rowGap      | _Number_        | 10        |
-| columnWidth | _Number_        | 250       |
-| readyClass  | _String_        | ''        |
+| Name              | Type             | Default   |
+| ----------------- | ---------------- | --------- |
+| item              | _React.Element_  | `<div />` |
+| container         | _React.Element_  | `<div />` |
+| rowGap            | _Number_         | 10        |
+| columnWidth       | _Number_         | 250       |
+| readyClass        | _String_         | ''        |
+| customGridStyles  | _Boolean_        | ''        |
 
 ### Todo
 

@@ -6,19 +6,21 @@ import key from './uid'
 interface ISnuggle {
   columnWidth?: number
   container?: React.ReactElement<any>
+  customGridStyles?: boolean
   item?: React.ReactElement<any>
   readyClass?: string
   rowGap?: number
   uniqueid?: string
 }
 
-const blackListProps = ['rowGap', 'columnWidth', 'uniqueid', 'readyClass']
+const blackListProps = ['rowGap', 'columnWidth', 'uniqueid', 'readyClass', 'customGridStyles']
 const removeBlackListed = removeKeys(blackListProps)
 
 class Snuggle extends React.PureComponent<ISnuggle> {
   static defaultProps = {
     columnWidth: 250,
     container: React.createElement('div'),
+    customGridStyles: false,
     item: React.createElement('div'),
     readyClass: '',
     rowGap: 20,
@@ -169,9 +171,9 @@ class Snuggle extends React.PureComponent<ISnuggle> {
 
     return (
       <>
-        {React.createElement('div', {
+        {!this.props.customGridStyles && (React.createElement('div', {
           dangerouslySetInnerHTML: { __html: this.createGridStyle() },
-        })}
+        }))}
         {React.createElement(container.type, containerProps, renderChildren)}
       </>
     )
